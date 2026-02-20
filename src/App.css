@@ -1,0 +1,53 @@
+#root {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.form-container {
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.table-container {
+  background-color: #bde2fb;
+  
+}
+
+.table-search {
+  background-color: #fff;
+  border-radius: 10px;
+
+  padding: 24px;
+  margin:  0 0 24px;
+}
+
+.table-actions {
+  background-color: #fff;
+  border-radius: 20px;
+}
