@@ -1,73 +1,112 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Fleet Service Logs Manager
 
-Currently, two official plugins are available:
+React + TypeScript + Vite application for managing vehicle service logs with draft auto-save functionality.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+##  Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* ⚛️ React 18
+* 🔷 TypeScript
+* ⚡ Vite
+* 🧠 Redux Toolkit
+* 💾 Redux Persist
+* 🎨 Material UI (MUI)
+* 📊 MUI DataGrid
+* 📝 React Hook Form + Yup
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Service Log Form
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+* Create new service logs
+* Validation with Yup
+* Auto-update of End Date
+* Auto-save draft functionality
+* Draft saving status (idle / saving / saved)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Draft System
+
+* Automatic draft creation
+* Edit existing drafts
+* Mark draft as saved after submission
+* Persistent storage (localStorage)
+
+### Service Logs Table
+
+* Search by:
+
+  * Provider ID
+  * Service Order
+  * Car ID
+* Filter by:
+
+  * Service Type
+  * Start Date
+* Pagination support
+* Edit & Delete actions
+
+
+---
+
+## Installation
+
+```bash
+git clone <your-repository-url>
+cd your-project
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+App will run at:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+http://localhost:5173
+```
+
+---
+
+## State Management
+
+### draftsSlice
+
+Handles:
+
+* Creating draft
+* Updating draft
+* Marking as saved
+* Deleting draft
+
+### serviceLogsSlice
+
+Handles:
+
+* Creating service log
+* Storing saved logs
+
+Redux Persist ensures:
+
+* Drafts remain after page reload
+* Service logs remain stored locally
+
+---
+
+## Validation
+
+Form validation powered by:
+
+* React Hook Form
+* Yup schema validation
+
+Rules include:
+
+* Required fields
+* Numeric validation for odometer and engine hours
+* Date validation
+
+---
+
+
+
