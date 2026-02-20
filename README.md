@@ -16,6 +16,9 @@ React + TypeScript + Vite application for managing vehicle service logs with dra
 * 📝 React Hook Form + Yup
 
 ---
+##  Deployed
+https://olekschernikov.github.io/ServiceLog/
+---
 
 ## Features
 
